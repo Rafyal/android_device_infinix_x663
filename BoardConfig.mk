@@ -12,6 +12,7 @@ BOARD_MAIN_PARTITION_LIST := system vendor product system_ext
 # Prebuilt Kernel
 TARGET_PREBUILT_KERNEL := device/infinix/X663-kernel/Image.gz
 BOARD_PREBUILT_DTBIMAGE_DIR := device/infinix/X663-kernel/dtb
+BOARD_INCLUDE_DTB_IN_BOOTIMG := true
 
 # Architecture
 TARGET_ARCH := arm64
