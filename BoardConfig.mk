@@ -12,3 +12,18 @@ BOARD_MAIN_PARTITION_LIST := system vendor product system_ext
 # Prebuilt Kernel
 TARGET_PREBUILT_KERNEL := device/infinix/X663-kernel/Image.gz
 BOARD_PREBUILT_DTBIMAGE_DIR := device/infinix/X663-kernel/dtb
+
+# Architecture
+TARGET_ARCH := arm64
+TARGET_ARCH_VARIANT := armv8-a
+TARGET_CPU_ABI := arm64-v8a
+TARGET_CPU_ABI2 := 
+TARGET_CPU_VARIANT := generic
+TARGET_CPU_VARIANT_RUNTIME := cortex-a75
+
+TARGET_2ND_ARCH := arm
+TARGET_2ND_ARCH_VARIANT := armv8-a
+TARGET_2ND_CPU_ABI := armeabi-v7a
+TARGET_2ND_CPU_ABI2 := armeabi
+TARGET_2ND_CPU_VARIANT := generic
+TARGET_2ND_CPU_VARIANT_RUNTIME := cortex-a55
