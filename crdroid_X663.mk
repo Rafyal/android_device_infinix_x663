@@ -5,8 +5,8 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 # Inherit from crDroid common configuration
 $(call inherit-product, vendor/crdroid/config/common.mk)
 
-# ---> TAMBAHKAN BARIS INI: Mengambil konfigurasi hardware X663 <---
-$(call inherit-product, device/infinix/X663/device.mk)
+# ---> INHERIT DARI COMMON TREE MT6768 <---
+$(call inherit-product, device/xiaomi/mt6768-common/mt6768.mk)
 
 # Device identifier
 PRODUCT_NAME := crdroid_X663
