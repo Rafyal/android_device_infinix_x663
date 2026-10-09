@@ -16,4 +16,9 @@ PRODUCT_MODEL := Infinix Note 11
 PRODUCT_MANUFACTURER := Infinix
 
 # ---> TAMBAHKAN BARIS INI: Variabel penamaan crDroid <---
+# crDroid Maintainer & Kosmetik
 CRDROID_BUILD := X663
+CR_MAINTAINER := Rafyal
+CR_DEVICE := Infinix Note 11
+CR_BUILD_TYPE := UNOFFICIAL
+
