@@ -19,6 +19,6 @@ PRODUCT_MANUFACTURER := Infinix
 # crDroid Maintainer & Kosmetik
 CRDROID_BUILD := X663
 CR_MAINTAINER := Rafyal
-CR_DEVICE := Infinix Note 11
+CR_DEVICE := Infinix NOTE 11
 CR_BUILD_TYPE := UNOFFICIAL
 
