@@ -12,7 +12,7 @@ $(call inherit-product, device/xiaomi/mt6768-common/mt6768.mk)
 PRODUCT_NAME := crdroid_X663
 PRODUCT_DEVICE := X663
 PRODUCT_BRAND := Infinix
-PRODUCT_MODEL := Infinix Note 11
+PRODUCT_MODEL := Infinix NOTE 11
 PRODUCT_MANUFACTURER := Infinix
 
 # ---> TAMBAHKAN BARIS INI: Variabel penamaan crDroid <---
