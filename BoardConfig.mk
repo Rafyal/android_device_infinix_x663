@@ -1,31 +1,33 @@
-# BoardConfig.mk - Auto-generated
-TARGET_ARCH := arm64
-TARGET_BOARD_PLATFORM := mt6768
-TARGET_BOOTLOADER_BOARD_NAME := mt6768
+DEVICE_PATH := device/infinix/x663
 
-# Partitions
-BOARD_SUPER_PARTITION_SIZE := 7000000000
-BOARD_SUPER_PARTITION_GROUPS := main
-BOARD_MAIN_SIZE := 7000000000
-BOARD_MAIN_PARTITION_LIST := system vendor product system_ext
-BOARD_RECOVERY_BLDRMSG_OFFSET := 0
-
-# Prebuilt Kernel
-TARGET_PREBUILT_KERNEL := device/infinix/X663-kernel/Image.gz
-BOARD_PREBUILT_DTBIMAGE_DIR := device/infinix/X663-kernel/dtb
-BOARD_INCLUDE_DTB_IN_BOOTIMG := true
-
-# Architecture
+# Arsitektur
 TARGET_ARCH := arm64
 TARGET_ARCH_VARIANT := armv8-a
 TARGET_CPU_ABI := arm64-v8a
-TARGET_CPU_ABI2 := 
 TARGET_CPU_VARIANT := generic
-TARGET_CPU_VARIANT_RUNTIME := cortex-a75
-
 TARGET_2ND_ARCH := arm
 TARGET_2ND_ARCH_VARIANT := armv8-a
 TARGET_2ND_CPU_ABI := armeabi-v7a
 TARGET_2ND_CPU_ABI2 := armeabi
 TARGET_2ND_CPU_VARIANT := generic
-TARGET_2ND_CPU_VARIANT_RUNTIME := cortex-a55
+
+TARGET_BOARD_PLATFORM := mt6768
+
+# Tanpa kernel/bootloader/radio: pakai boot dan vendor stock
+TARGET_NO_BOOTLOADER := true
+TARGET_NO_KERNEL := true
+TARGET_NO_RADIOIMAGE := true
+
+# Filesystem dan metadata
+BOARD_SYSTEMIMAGE_FILE_SYSTEM_TYPE := ext4
+BOARD_USES_METADATA_PARTITION := true
+
+# Dynamic partitions (dari lpdump Virtual A/B)
+PRODUCT_USE_DYNAMIC_PARTITIONS := true
+BOARD_SUPER_PARTITION_SIZE := 7755374592
+BOARD_SUPER_PARTITION_GROUPS := main
+BOARD_MAIN_SIZE := 7744888832
+BOARD_MAIN_PARTITION_LIST := system
+
+# Treble
+BOARD_VNDK_VERSION := current
