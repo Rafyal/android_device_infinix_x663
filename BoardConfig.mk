@@ -31,3 +31,6 @@ BOARD_MAIN_PARTITION_LIST := system
 
 # Treble
 BOARD_VNDK_VERSION := current
+
+# Tambah di paling bawah:
+include vendor/lineage/config/BoardConfigLineage.mk
