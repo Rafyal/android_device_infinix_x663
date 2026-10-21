@@ -1,7 +1,7 @@
-# Inherit konfigurasi dasar crDroid
-$(call inherit-product, vendor/crdroid/config/common_full_phone.mk)
+# Dengan ini:
+$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 
-# API Level dan VNDK dari stock vendor
+PRODUCT_USE_DYNAMIC_PARTITIONS := true
 PRODUCT_SHIPPING_API_LEVEL := 30
 PRODUCT_EXTRA_VNDK_VERSIONS := 31
 
