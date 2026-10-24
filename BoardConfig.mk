@@ -110,7 +110,7 @@ DEVICE_MATRIX_FILE += $(DEVICE_PATH)/configs/vintf/compatibility_matrix.xml
 BOARD_VENDOR_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/vendor
 
 # VNDK (from stock vendor build.prop)
-BOARD_VNDK_VERSION := 31
+BOARD_VNDK_VERSION := current
 
 # RIL
 ENABLE_VENDOR_RIL_SERVICE := true
