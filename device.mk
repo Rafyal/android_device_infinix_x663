@@ -18,5 +18,3 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_EXTRA_VNDK_VERSIONS := 31
 PRODUCT_PACKAGES += com.android.vndk.v31
-
-PRODUCT_PACKAGES -= DownloadProvider DownloadProviderUi
