@@ -3,7 +3,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, device/infinix/x663/device.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/gsi_keys.mk)
 $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
-PRODUCT_PACKAGES -= DownloadProvider DownloadProviderUi
+PRODUCT_PACKAGES := $(filter-out DownloadProvider DownloadProviderUi,$(PRODUCT_PACKAGES))
 
 PRODUCT_NAME := crdroid_x663
 PRODUCT_DEVICE := x663
