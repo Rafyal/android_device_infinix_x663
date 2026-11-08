@@ -1,13 +1,18 @@
-system /system ext4 ro wait,slotselect,avb=vbmeta_system,logical,first_stage_mount,avb_keys=/avb/q-gsi.avbpubkey:/avb/r-gsi.avbpubkey:/avb/s-gsi.avbpubkey
-vendor /vendor ext4 ro wait,slotselect,avb,logical,first_stage_mount
-product /product ext4 ro wait,slotselect,avb,logical,first_stage_mount
-system_ext /system_ext ext4 ro wait,slotselect,avb,logical,first_stage_mount
+# Android 13, virtual A/B, dynamic partitions.
+# ro.hardware = mt6768 on this device, so the file name is correct.
+# Verification is disabled via vbmeta --flags 3, so there are no avb= entries.
+#
+# <src>                       <mnt_point>  <type>  <mnt_flags>                                <fs_mgr_flags>
+system                        /system      ext4    ro,barrier=1                              wait,slotselect,logical,first_stage_mount
+system_ext                    /system_ext  ext4    ro,barrier=1                              wait,slotselect,logical,first_stage_mount
+product                       /product     ext4    ro,barrier=1                              wait,slotselect,logical,first_stage_mount
+vendor                        /vendor      ext4    ro,barrier=1                              wait,slotselect,logical,first_stage_mount
 
-/dev/block/by-name/md_udc /metadata ext4 noatime,nosuid,nodev,discard wait,check,formattable,first_stage_mount
-/dev/block/by-name/userdata /data f2fs noatime,nosuid,nodev,discard,noflush_merge,reserve_root=134217,resgid=1065,inlinecrypt,tran_gc wait,check,formattable,quota,latemount,resize,reservedsize=128m,checkpoint=fs,fileencryption=aes-256-xts:aes-256-cts:v2,keydirectory=/metadata/vold/metadata_encryption,fscompress
+# Partition name confirmed by the working PBRP build: `metadata`, not `md_udc`.
+/dev/block/by-name/metadata   /metadata    ext4    noatime,nosuid,nodev,discard              wait,formattable,first_stage_mount
 
-/dev/block/by-name/boot /boot emmc defaults first_stage_mount,nofail,slotselect
-/dev/block/by-name/vbmeta_vendor /vbmeta_vendor emmc defaults first_stage_mount,nofail,slotselect
-/dev/block/by-name/vbmeta_system /vbmeta_system emmc defaults first_stage_mount,nofail,slotselect,avb=vbmeta
-/dev/block/by-name/dtbo /dtbo emmc defaults defaults
-/dev/block/by-name/vbmeta /vbmeta emmc defaults defaults
+/dev/block/by-name/userdata   /data        f2fs    noatime,nosuid,nodev,discard,noflush_merge,inlinecrypt,reserve_root=134217,resgid=1065,tran_gc wait,check,formattable,quota,latemount,resize,reservedsize=128m,checkpoint=fs,fileencryption=aes-256-xts:aes-256-cts:v2,keydirectory=/metadata/vold/metadata_encryption,fscompress
+
+# Required on virtual A/B: update_engine reads this entry to find the boot device.
+# Deleting it breaks OTA installs, not the boot.
+/dev/block/by-name/misc       /misc        emmc    defaults                                  defaults
